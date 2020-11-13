@@ -75,41 +75,59 @@ for(let i=0;i<hacker1.length;i++){
 
 //  Bonus 1
 
-let text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce auctor diam sit amet neque sollicitudin vulputate. Pellentesque nec faucibus elit. Proin at augue urna. Proin eu molestie nisl, id convallis tellus. Curabitur lobortis faucibus mauris vitae elementum. Proin vitae ornare dolor. Sed commodo fringilla nibh, quis dictum dolor. Praesent in dolor vel nulla tincidunt congue ut id tellus. Etiam sed odio quis elit tempus vestibulum volutpat non ligula. 
+let text = `Lorem et ipsum dolor sit amet, consectetur adipiscing elit. Fusce auctor diam sit amet neque sollicitudin vulputate. Pellentesque nec faucibus elit. Proin at augue urna. Proin eu molestie nisl, id convallis tellus. Curabitur lobortis faucibus mauris vitae elementum. Proin vitae ornare dolor. Sed commodo fringilla nibh, quis dictum dolor. Praesent in dolor vel nulla tincidunt congue ut id tellus. Etiam sed odio quis elit tempus vestibulum volutpat non ligula.
 
-Vestibulum dignissim interdum consectetur. Aenean laoreet in mi sed bibendum. Fusce porttitor a ligula maximus faucibus. Suspendisse eu facilisis tellus, et sollicitudin massa. Vestibulum malesuada consectetur lectus quis tincidunt. Fusce ac metus tincidunt, finibus mi et, ornare enim. Ut ut nisi diam. Suspendisse sollicitudin purus vel dignissim feugiat. Nulla congue neque libero, eu suscipit leo posuere sit amet. Phasellus ornare aliquet fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed iaculis metus at risus aliquet, id vestibulum lacus scelerisque. Proin quis orci non nisi lobortis mollis. Nullam iaculis mi quis tortor feugiat dictum. Sed ultrices libero eget augue varius mattis. 
+Vestibulum dignissim interdum consectetur. Aenean laoreet in mi sed bibendum. Fusce porttitor a ligula maximus faucibus. Suspendisse eu facilisis tellus, et sollicitudin massa. Vestibulum malesuada consectetur lectus quis tincidunt. Fusce ac metus tincidunt, finibus mi et, ornare enim. Ut ut nisi diam. Suspendisse sollicitudin purus vel dignissim feugiat. Nulla congue neque libero, eu suscipit leo posuere sit amet. Phasellus ornare aliquet fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed iaculis metus at risus aliquet, id vestibulum lacus scelerisque. Proin quis orci non nisi lobortis mollis. Nullam iaculis mi quis tortor feugiat dictum. Sed ultrices libero eget augue varius mattis.
 
 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In ut condimentum metus, sed vulputate est. Aenean et dolor id dui molestie lacinia eget in magna. Vivamus interdum lacus sed mi rhoncus accumsan. Duis a libero sed sapien interdum cursus nec sodales orci. Morbi ullamcorper ac nisi id suscipit. In nec tincidunt enim, quis lobortis ex. Fusce lobortis purus quis tempor luctus. Vivamus finibus nibh sit amet turpis laoreet, ut facilisis magna bibendum.`;
-
+console.log(text);
 //1,1 with loops
-let counter = 1; // One space for the last word. 
+let counter = -1; // It starts on -1 because there's no word after the last breakline 
     for (let i = 0; i <= text.length ; i++) {
-        if (text.charAt(i) === ' ') {
+        if (text.charAt(i) === ' ' || text.charAt(i)==='\n') {
             counter += 1;
         }
     };
     console.log(counter);
     
+//1,1 with methods //******REVISAR ESTÁ MAL!!!!!!!!!
+
+console.log(text.split(' ').length + 2); // one for count index0. Other for the last word
+
+//1,2  
+
+let textWords= text.split(' ');
+console.log(textWords);
+let etCounter=0;
+for(let i=0;i<textWords.length;i++){
+    if(textWords[i]==='et'){
+        etCounter+=1;
+    }
+}
+console.log(etCounter);
+
+
+
 
 // Bonus 2
 
-let phraseToCheck="Amor, Roma";
+let phraseToCheck=`taco cot`;
 
-function palindrome(str) {
+rawPhraseToCheck= phraseToCheck.replace(/[^0-9a-z]/gi, '').toLowerCase();
 
-    var newStr= str.replace(/[^0-9a-z]/gi, '').toLowerCase().split("");
-  
-    for(var i=0; i < (newStr.length)/2; i++){ 
-      if(newStr[i] !== newStr[newStr.length-i-1]){ 
+let reversePhrase='';
+    for(let i=rawPhraseToCheck.length-1;i>=0;i--){ //length-1 because i ends on index 0
+        reversePhrase +=rawPhraseToCheck[i];
+        };
+    
+
+    if(rawPhraseToCheck===reversePhrase){
+        console.log(`The phrase ' ${phraseToCheck} ' it's palindrome`);
+        return true;
+    }else{
+        console.log(`The phrase ' ${phraseToCheck} ' isn't palindrome`);
         return false;
-      } 
-    }
-    console.log('its palindrome')
-    return true
-    ;
-  }
-
-  palindrome(phraseToCheck);
+    };
 
 
 
